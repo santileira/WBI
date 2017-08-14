@@ -234,21 +234,21 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="nombre *" id="name" required data-validation-required-message="Por favor ingresa tu nombre.">
+                                    <input type="text" class="form-control" name="Nombre" placeholder="nombre *" id="name" required data-validation-required-message="Por favor ingresa tu nombre.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 								<div class="form-group">
-                                    <input type="telefono" class="form-control" placeholder="teléfono *" id="telefono" required data-validation-required-message="Por favor ingresa tu teléfono.">
+                                    <input type="telefono" class="form-control" name="Telefono" placeholder="teléfono *" id="telefono" required data-validation-required-message="Por favor ingresa tu teléfono.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 								<div class="form-group">
-                                    <input type="email" class="form-control" placeholder="email *" id="email" required data-validation-required-message="Por favor ingresa tu e-mail.">
+                                    <input type="email" class="form-control" name="Email" placeholder="email *" id="email" required data-validation-required-message="Por favor ingresa tu e-mail.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="mensaje *" id="message" required data-validation-required-message="Por favor ingresa tu mensaje."></textarea>
+                                    <textarea class="form-control" name="Mensaje" placeholder="mensaje *" id="message" required data-validation-required-message="Por favor ingresa tu mensaje."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -493,5 +493,28 @@
     <script src="js/agency.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>new WOW().init();</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#contactForm').on('submit', function(e){
+				debugger;
+				e.preventDefault();
+				e.stopPropagation();
+				$.ajax({
+				data: $('#contactForm').serialize(),
+				success:function(response){
+					if (response==1)
+						showLightbox('<div class="mensaje" style="color: green; text-align:center">El e-mail se envió correctamente. Nos contactaremos a la brevedad.</div>');
+					else
+						showLightbox('<div class="mensaje" style="color: RED; text-align:center"">El e-mail no se ha podido enviar. Por favor vuelvalo a intentar más tarde. Gracias</div>');
+				},
+				error:function(){
+					showLightbox('<div class="mensaje" style="color: RED; text-align:center"">El e-mail no se ha podido enviar. Por favor vuelvalo a intentar más tarde.</div>');
+				},
+				type: 'POST',
+				url: 'js/send_email.php', 
+				});
+			});
+		});
+	</script>
 </body>
 </html>
