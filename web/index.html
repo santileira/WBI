@@ -263,23 +263,6 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -489,32 +472,52 @@
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <!--<script src="js/contact_me.js"></script>-->
     <script src="js/agency.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>new WOW().init();</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#contactForm').on('submit', function(e){
-				debugger;
 				e.preventDefault();
 				e.stopPropagation();
 				$.ajax({
 				data: $('#contactForm').serialize(),
 				success:function(response){
-					if (response==1)
-						showLightbox('<div class="mensaje" style="color: green; text-align:center">El e-mail se envió correctamente. Nos contactaremos a la brevedad.</div>');
+					if(response == 1)
+						mostrarMensaje("alert-success", "Su mensaje ha sido enviado.");
 					else
-						showLightbox('<div class="mensaje" style="color: RED; text-align:center"">El e-mail no se ha podido enviar. Por favor vuelvalo a intentar más tarde. Gracias</div>');
+						mostrarMensaje("alert-danger", "Ha ocurrido un error al enviar el mensaje, por favor intentelo más tarde.");
 				},
 				error:function(){
-					showLightbox('<div class="mensaje" style="color: RED; text-align:center"">El e-mail no se ha podido enviar. Por favor vuelvalo a intentar más tarde.</div>');
+					mostrarMensaje("alert-danger", "Ha ocurrido un error al enviar el mensaje, por favor intentelo más tarde.");
+					
 				},
 				type: 'POST',
 				url: 'js/send_email.php', 
 				});
 			});
 		});
+		
+		function mostrarMensaje(clase, mensaje) {
+			$("#success")
+				.append(
+					jQuery("<div>").addClass("alert " + clase)
+					.append(
+						jQuery("<a>")
+						.addClass("close")
+						.attr({"type" : "button",
+								"data-dismiss" : "alert",
+								"aria-label" : "close",
+								"title" : "Cerrar mensaje",
+								"href" : "#"})
+						.text("x"),
+						jQuery("<strong>")
+						.text(mensaje)
+							)
+						);
+			$('#contactForm').trigger("reset");
+		}
 	</script>
 </body>
 </html>
