@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST["Nombre"]) && isset($_POST["Email"]) && isset($_POST["Mensaje"]) ){
-		$to = "santiagoleira10@gmail.com";
+		$to = "santiagoleira10@gmail.com, bifreelancer27@gmail.com";
 		$subject = "WEB Contacto";
 		$contenido .= "Nombre: ".$_POST["Nombre"]."\n";
 		$contenido .= "Email: ".$_POST["Email"]."\n";
