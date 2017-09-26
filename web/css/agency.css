@@ -174,3 +174,49 @@ a#tableu:hover{
 .close {
 	font-size: 50px !important;
 }
+
+#team .precios .precio {
+	background-color: white;
+    border-radius: 10px;
+    padding: 0px 0px 20px 0px;
+    margin: 0 auto;
+    text-align: center;
+    margin
+}
+
+#team .precios .precio h3 {
+    background-color: #181A1C;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FECE1A;
+    padding: 40px 0px;
+    font-size: 29px;
+    margin-top: 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#team .precios .precio .list {
+	padding: 0px !important;
+    list-style: none;
+    margin: 20px 50px;
+}
+
+#team .precios .precio .list li {
+	font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    color: #747C89;
+    font-size: 20px;
+    border-bottom: 1px solid #747C89;
+    padding: 25px 0px;
+}
+
+
+#team .precios .precio .list li.price {
+	text-align: center;
+    font-size: 31px;
+    background-color: white;
+    color: #747C89;
+    margin-top: 25px;
+}
+
+
