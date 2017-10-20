@@ -74,27 +74,22 @@ section{padding:100px 0}section h2.section-heading{font-size:90px;margin-top:0;m
 	transition-delay: 0.3s;
 }
 
-@media (min-width: 768px) {
-	#tituloUbicacionWeb {
-		visibility: visible !important;
-		display: visibility !important;
-	}
 
-	#tituloUbicacionMobile {
-		visibility: hidden !important;
-		display: none !important;
+@media (max-width: 332px) {
+	#tituloUbicacion, #tituloDashboards {
+		font-size: 2.7em !important;
 	}
 }
 
-
-@media (max-width: 767px) {
-	#tituloUbicacionMobile {
-		visibility: visible !important;
+@media (max-width: 407px) {
+	#direccionMail {
+		font-size: 2.7em !important;
 	}
 
-	#tituloUbicacionWeb {
-		visibility: hidden !important;
-		display: none !important;
+	#iconoMail {
+		font-size: 23px !important;
+		padding-right: 10px !important;
+
 	}
 }
 
